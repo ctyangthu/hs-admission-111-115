@@ -273,6 +273,7 @@ table.heat td.focus-col { box-shadow: inset 0 0 0 2px var(--accent); }
 #tip .row i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; margin-right: 6px; }
 
 footer { font-size: 12px; color: var(--muted); }
+footer a { color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
@@ -284,7 +285,7 @@ footer { font-size: 12px; color: var(--muted); }
 
 <div class="wrap">
   <header class="top">
-    <div class="eyebrow">國教署精進支持計畫・內部分析</div>
+    <div class="eyebrow">國教署精進支持計畫・合作高中入學分析</div>
     <h1>高中入學調查 111–115</h1>
     <p class="lede">10 所合作高中在 111–115 學年度進入本校的人次，分成學系與入學管道兩種統計。下方的篩選會套用到所有圖表；點各校比較表的列可以只看那一校，點學院長條可以篩選學系表。</p>
   </header>
@@ -371,7 +372,7 @@ footer { font-size: 12px; color: var(--muted); }
   </section>
 
   <section class="card" aria-labelledby="h-notes">
-    <div class="card-head"><div><h2 id="h-notes">資料說明</h2><p>給計畫團隊核對與討論用</p></div></div>
+    <div class="card-head"><div><h2 id="h-notes">資料說明</h2><p>資料來源、處理方式、檢定結果與解讀限制</p></div></div>
     <div class="notes">
       <section>
         <h3>來源與結構</h3>
@@ -393,7 +394,7 @@ footer { font-size: 12px; color: var(--muted); }
         </ul>
       </section>
       <section>
-        <h3>原始檔待修正</h3>
+        <h3>原始檔的不一致之處</h3>
         <ul>
           <li>華盛頓高中管道表第 55 列 A 欄缺少「繁星」。</li>
           <li>工作表名稱和 B2 校名不一致：「華盛頓中學」對「華盛頓高中」、「台中二中」對「臺中二中」。</li>
@@ -422,7 +423,7 @@ footer { font-size: 12px; color: var(--muted); }
     </div>
   </section>
 
-  <footer>資料：高中入學調查V2.xlsx・整理與圖表由 Claude 依原始工作表計算</footer>
+  <footer>資料：高中入學調查V2.xlsx・整理與圖表由 Claude 依原始工作表計算・<a href="https://github.com/ctyangthu/hs-admission-111-115">原始碼與整理後資料</a></footer>
 </div>
 <div id="tip" role="tooltip" hidden></div>
 
