@@ -62,6 +62,27 @@ chan = pd.DataFrame(chan_rows)
 head = pd.DataFrame(head_rows)
 top = pd.DataFrame(top_rows)
 
+# --- clean-up: each of these is an inconsistency in the source file ---
+for col, aliases, label in [
+    ("college", {"國經學院": "國際學院"}, "學院"),
+    ("dept", {"健運學程": "健運系"}, "學系"),
+]:
+    for name, canonical in aliases.items():
+        hit = sorted(dept.loc[dept[col] == name, "school"].unique())
+        if hit:
+            issues.append(f"{label}名稱「{name}」統一為「{canonical}」：{len(hit)} 校 {hit}")
+    dept[col] = dept[col].replace(aliases)
+
+# 華盛頓高中的未命名管道列已確認為繁星；其他學校若出現未命名的列，build.py 會直接失敗
+washington_blank = (chan.school == "華盛頓高中") & chan.channel.isna()
+if washington_blank.any():
+    issues.append("[華盛頓高中] 管道表有未命名的列，視為繁星")
+chan.loc[washington_blank, "channel"] = "繁星"
+
+for _, r in dept[dept[YEARS].isna().any(axis=1)].iterrows():
+    issues.append(f"[{r.school}] {r.dept} 逐年欄位空白（五年總人數 {r.dept_total}），視為 0")
+dept[YEARS] = dept[YEARS].fillna(0).astype(int)
+
 # --- consistency checks ---
 for df, totcol, label in [(dept, "dept_total", "學系"), (chan, "chan_total", "管道")]:
     calc = df[YEARS].sum(axis=1)
@@ -101,6 +122,11 @@ for s, g in dept.groupby("school"):
     dup = g.dept[g.dept.duplicated()]
     if len(dup):
         issues.append(f"[{s}] 學系重複：{list(dup)}")
+
+# every department belongs to exactly one college
+for name, g in dept.groupby("dept"):
+    if g.college.nunique() != 1:
+        issues.append(f"{name} 出現在多個學院：{sorted(g.college.unique())}")
 
 # side top-list vs dept table
 if len(top):

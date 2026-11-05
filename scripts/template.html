@@ -277,18 +277,18 @@ footer a { color: var(--accent); }
 <!--BODY-->
 <div class="wrap">
   <header class="top">
-    <div class="eyebrow">國教署精進支持計畫・合作高中入學分析</div>
+    <div class="eyebrow">國教署精進支持計畫・高中入學分析</div>
     <h1>高中入學調查 111–115</h1>
-    <p class="lede">10 所合作高中在 111–115 學年度進入本校的人次，分成學系與入學管道兩種統計。下方的篩選會套用到所有圖表；點各校比較表的列可以只看那一校，點學院長條可以篩選學系表。</p>
+    <p class="lede">16 所高中在 111–115 學年度進入本校的人次，分成學系與入學管道兩種統計。下方的篩選會套用到所有圖表；點各校比較表的列可以只看那一校，點學院長條可以篩選學系表。</p>
   </header>
 
   <div>
     <p class="findings-head">全部資料的重點（不隨篩選變動）</p>
     <div class="findings" style="margin-top:10px">
-      <div class="finding"><b>五年成長約 25%</b><span>年均人次從 111–112 的 222 增加到 114–115 的 277，115 學年持平（+0.7%）。</span></div>
-      <div class="finding"><b>立人高中占兩成以上</b><span>274 人次、占 21.9%，每年波動最小。惠文高中成長最快（年均 7.5 → 23），東山高中是唯一明顯下滑的學校（29 → 20.5）。</span></div>
-      <div class="finding"><b>臺中二中走考分</b><span>唯一考分（52.8%）多於個申（42.6%）的學校，也最偏好工學院（占 27.8%）。</span></div>
-      <div class="finding"><b>創意學院成長、理學院在 115 減半</b><span>創意學院從前兩年 10 人增加到後兩年 34 人；理學院 115 學年從 28 降到 14，化學系 8 → 2。</span></div>
+      <div class="finding"><b>人次每年都在成長</b><span>從 111 學年的 363 人次增加到 115 學年的 470 人次；年均從 111–112 的 371.5 增加到 114–115 的 456.5（+22.9%）。</span></div>
+      <div class="finding"><b>立人高中最大，東山高中下滑最多</b><span>立人高中 274 人次、占 13.3%，每年波動最小。惠文高中成長最快（年均 7.5 → 23），嘉義女中逐年上升最穩定（17 → 36）；東山高中年均從 29 降到 20.5。</span></div>
+      <div class="finding"><b>各校管道組成不同</b><span>臺中二中是唯一考分（52.8%）多於個申（42.6%）的學校。明道高中沒有繁星，全部 11 位四技甄選有 10 位來自明道。</span></div>
+      <div class="finding"><b>創意學院倍增，化學系 115 驟降</b><span>創意學院從前兩年 29 人增加到後兩年 63 人。化學系 115 學年從 12 人降到 2 人，是理學院從 44 降到 31 的主因。</span></div>
     </div>
   </div>
 
@@ -333,7 +333,7 @@ footer a { color: var(--accent); }
 
   <section class="card" aria-labelledby="h-sch">
     <div class="card-head">
-      <div><h2 id="h-sch">各校比較</h2><p>依目前的學年度與管道篩選計算；占比是占全部 10 校的比例。點一列只看該校，再點一次回到全部。</p></div>
+      <div><h2 id="h-sch">各校比較</h2><p>依目前的學年度與管道篩選計算；占比是占全部學校的比例。點一列只看該校，再點一次回到全部。</p></div>
     </div>
     <div class="tscroll"><table id="schTable"></table></div>
     <p class="hint" id="schHint"></p>
@@ -369,7 +369,7 @@ footer a { color: var(--accent); }
       <section>
         <h3>來源與結構</h3>
         <ul>
-          <li>來源檔：<code>高中入學調查V2.xlsx</code>，10 個工作表，每校一張，涵蓋 111–115 學年度。</li>
+          <li>來源檔：<code>高中入學調查V3.xlsx</code>，16 個工作表，每校一張，涵蓋 111–115 學年度。</li>
           <li>每校有兩張表：各學院、學系年度入學人數（9 學院、37 學系），以及各入學管道年度人數。</li>
           <li>兩張表分開統計，無法交叉。例如看不到「法律系的個申人數」。所以管道篩選只影響摘要數字、管道圖和各校比較表的人次欄。</li>
           <li>學系加總、管道加總、學院總數和表頭總數全部核對過，沒有不一致。</li>
@@ -379,10 +379,12 @@ footer a { color: var(--accent); }
         <h3>處理方式</h3>
         <ul>
           <li>華盛頓高中管道表沒有名稱的一列（5 年共 6 人）已確認為繁星。</li>
-          <li>長億高中的「健運學程」統一為「健運系」，和其他 9 校一致。</li>
-          <li>新民高中的「四技甄選」1 人（114 學年）保留為獨立管道。</li>
+          <li>長億高中的「健運學程」統一為「健運系」，和其他學校一致。</li>
+          <li>10 校寫「國經學院」、6 校寫「國際學院」，兩者都包含國經學程和永續經營，統一為「國際學院」。</li>
+          <li>「四技甄選」共 11 人（明道高中 10 人、新民高中 1 人），保留為獨立管道。</li>
+          <li>管道表沒有某個管道的列時視為 0 人，例如明道高中沒有繁星列；各校管道加總都和總人次相符。</li>
           <li>前段／後段：所選學年依序對半分，例如選 5 個學年時比較 111–112 與 114–115 的年均，中間的 113 不計。</li>
-          <li>偏好指數：某校某學院的占比 ÷ 全部 10 校該學院的占比。大於 1 表示該校學生比平均更常選這個學院。</li>
+          <li>偏好指數：某校某學院的占比 ÷ 全部學校該學院的占比。大於 1 表示該校學生比平均更常選這個學院。</li>
         </ul>
       </section>
       <section>
@@ -391,17 +393,18 @@ footer a { color: var(--accent); }
           <li>華盛頓高中管道表第 55 列 A 欄缺少「繁星」。</li>
           <li>工作表名稱和 B2 校名不一致：「華盛頓中學」對「華盛頓高中」、「台中二中」對「臺中二中」。</li>
           <li>長億高中的學系名稱「健運學程」和其他學校的「健運系」不同。</li>
+          <li>學院名稱不一致：10 校寫「國經學院」，6 校寫「國際學院」。</li>
           <li>華盛頓高中電機系 111–115 逐年欄位空白，五年總人數為 0，這裡視為 0。</li>
           <li>惠文高中 A1 欄位空白（其他工作表是「項目」）。</li>
         </ul>
       </section>
       <section>
-        <h3>統計檢定（全部 10 校、5 學年）</h3>
+        <h3>統計檢定（全部 16 校、5 學年）</h3>
         <ul>
-          <li>年度總人次線性趨勢：每年約 +16.3 人，R² = 0.87，p = 0.02。</li>
-          <li>學校 × 管道（個申／考分／繁星）：χ² = 67.4，df = 18，p &lt; 0.001，各校管道組成差異顯著。</li>
-          <li>學校 × 學院（創意、法律、國經合併）：χ² = 95.4，df = 54，p = 0.0004，各校偏好學院不同。</li>
-          <li>只有立人高中（p = 0.04）和惠文高中（p = 0.05）的逐年趨勢接近顯著，其他學校 5 個點不足以判斷趨勢。</li>
+          <li>年度總人次線性趨勢：每年約 +27.7 人，R² = 0.99，p &lt; 0.001。</li>
+          <li>學校 × 管道（個申／考分／繁星）：χ² = 115.1，df = 30，p &lt; 0.001，各校管道組成差異顯著。</li>
+          <li>學校 × 學院（創意、法律、國際合併）：χ² = 225.3，df = 90，p &lt; 0.001，各校偏好學院不同。</li>
+          <li>單校逐年趨勢只有嘉義女中（p = 0.01）、豐原高中（p = 0.04）、立人高中（p = 0.04）、惠文高中（p = 0.05）達到或接近顯著。每校只有 5 個點，又同時檢定 16 校，單校結果要保守看待。</li>
         </ul>
       </section>
       <section>
@@ -415,7 +418,7 @@ footer a { color: var(--accent); }
     </div>
   </section>
 
-  <footer>資料：高中入學調查V2.xlsx・整理與圖表由 Claude 依原始工作表計算・<a href="https://github.com/ctyangthu/hs-admission-111-115">原始碼與整理後資料</a></footer>
+  <footer>資料：高中入學調查V3.xlsx・整理與圖表由 Claude 依原始工作表計算・<a href="https://github.com/ctyangthu/hs-admission-111-115">原始碼與整理後資料</a></footer>
 </div>
 <div id="tip" role="tooltip" hidden></div>
 
@@ -518,7 +521,7 @@ function renderFilters() {
   $('#fChans').innerHTML = CH.map((c, i) => chip('c', i, c, st.chans.has(i),
     `<span class="dot" style="background:var(${CH_VAR[i]})"></span>`)).join('');
   const ys = ysSel();
-  $('#fstatus').textContent = `目前：${allS ? '全部 10 校' : st.schools.size + ' 所學校'}・${yLabel(ys)} 學年・${allCh() ? '全部管道' : csSel().map(c => CH[c]).join('、')}`;
+  $('#fstatus').textContent = `目前：${allS ? `全部 ${NS} 校` : st.schools.size + ' 所學校'}・${yLabel(ys)} 學年・${allCh() ? '全部管道' : csSel().map(c => CH[c]).join('、')}`;
 }
 let flashT;
 function flash(msg) {
@@ -711,7 +714,7 @@ $('#colBars').addEventListener('click', e => {
   const ci = +b.dataset.ci; st.college = st.college === ci ? null : ci; render();
 });
 
-/* ---------- reference shares for 偏好指數 (all 10 schools, current years) ---------- */
+/* ---------- reference shares for 偏好指數 (all schools, current years) ---------- */
 function refShares(ys) {
   const n = COL.map((_, ci) => S.reduce((a, _s, s) => a + colSC(s, ci, ys), 0));
   const t = n.reduce((a, b) => a + b, 0);
@@ -791,7 +794,7 @@ function renderHeat() {
   const sub = {
     n: '格子數字是人次，顏色越深人越多',
     pct: '每列加總 100%，看各校學生分布在哪些學院',
-    lq: '偏好指數 = 該校占比 ÷ 全部 10 校占比；紅色高於平均，藍色低於平均',
+    lq: `偏好指數 = 該校占比 ÷ 全部 ${NS} 校占比；紅色高於平均，藍色低於平均`,
   };
   $('#heatSub').textContent = sub[mode] + `（${yLabel(ys)} 學年）`;
   const cells = ss.map(s => {
@@ -820,7 +823,7 @@ function renderHeat() {
       }
     }
     const t = `<b>${esc(S[r.s])}・${esc(COL[ci])}</b>` + tipRow('人次', n + ' 人') + tipRow('占該校', pct(share)) +
-      tipRow('全部 10 校占比', pct(ref[ci])) + tipRow('偏好指數', exp < 3 ? `${lq.toFixed(2)}（人數少，僅供參考）` : lq.toFixed(2));
+      tipRow(`全部 ${NS} 校占比`, pct(ref[ci])) + tipRow('偏好指數', exp < 3 ? `${lq.toFixed(2)}（人數少，僅供參考）` : lq.toFixed(2));
     const cls = [thin ? 'thin' : '', st.college === ci ? 'focus-col' : ''].join(' ');
     return `<td class="${cls}" tabindex="0" data-tip="${tipId(t)}" style="background:${bg};${hi ? 'color:var(--ink-on-hi);' : ''}">${txt}</td>`;
   }).join('')}</tr>`).join('');
@@ -860,7 +863,7 @@ function renderDepts() {
   rows.sort((a, b) => k === 'name' ? dd * a.d.n.localeCompare(b.d.n, 'zh-Hant') : dd * ((a[k] - b[k]) || (a.n - b.n)));
   const LIMIT = 15, showAll = st.deptAll || st.college !== null;
   const shown = showAll ? rows : rows.slice(0, LIMIT);
-  $('#deptSub').textContent = `${st.college !== null ? COL[st.college] + '・' : ''}${yLabel(ys)} 學年・${ss.length === NS ? '全部 10 校' : ss.length === 1 ? S[ss[0]] : ss.length + ' 所學校'}；占比是占所選人次的比例`;
+  $('#deptSub').textContent = `${st.college !== null ? COL[st.college] + '・' : ''}${yLabel(ys)} 學年・${ss.length === NS ? `全部 ${NS} 校` : ss.length === 1 ? S[ss[0]] : ss.length + ' 所學校'}；占比是占所選人次的比例`;
   $('#deptTools').innerHTML = st.college !== null
     ? `<button type="button" class="chip" id="clearCol" aria-pressed="true"><span class="tick"></span>${esc(COL[st.college])}　✕</button>` : '';
   const sk = (key, label, cls = '') => `<th class="sortable ${cls}" data-sort="${key}" aria-sort="${k === key ? (dd < 0 ? 'descending' : 'ascending') : 'none'}" tabindex="0">${label}</th>`;

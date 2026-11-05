@@ -16,9 +16,6 @@ CHANNELS = ["個申", "考分", "繁星", "特選", "四技甄選"]
 
 dept = pd.read_csv(f"{out_dir}/dept_long.csv")
 chan = pd.read_csv(f"{out_dir}/chan_long.csv")
-dept["dept"] = dept["dept"].replace({"健運學程": "健運系"})
-dept[Y] = dept[Y].fillna(0)  # 華盛頓高中電機系逐年欄位空白，五年總人數為 0
-chan["channel"] = chan["channel"].fillna("繁星")  # 華盛頓高中未標示列，經使用者確認為繁星
 
 schools = dept.groupby("school")["dept_total"].sum().sort_values(ascending=False).index.tolist()
 colleges = dept.groupby("college")["dept_total"].sum().sort_values(ascending=False).index.tolist()

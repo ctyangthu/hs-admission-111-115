@@ -10,10 +10,6 @@ dept = pd.read_csv(f"{d}/dept_long.csv")
 chan = pd.read_csv(f"{d}/chan_long.csv")
 head = pd.read_csv(f"{d}/head.csv")
 
-# normalisation
-dept["dept"] = dept["dept"].replace({"健運學程": "健運系"})
-chan["channel"] = chan["channel"].fillna("繁星(推定)")
-chan["channel"] = chan["channel"].replace({"繁星(推定)": "繁星"})  # merged for totals; flagged in report
 pd.set_option("display.width", 200)
 pd.set_option("display.max_columns", 30)
 
@@ -93,7 +89,7 @@ for s in cs.index:
 # chi-square on colleges with expected >=5 mostly: merge small colleges
 big = ["管理學院", "社科院", "文學院", "工學院", "理學院", "農健學院"]
 cs2 = cs[big].copy()
-cs2["其他(創意/法律/國經)"] = cs[[c for c in cs.columns if c not in big]].sum(axis=1)
+cs2["其他(創意/法律/國際)"] = cs[[c for c in cs.columns if c not in big]].sum(axis=1)
 chi2, p, dof, exp = chi2_contingency(cs2)
 print(f"\n學校 × 學院 卡方檢定: chi2={chi2:.1f}, df={dof}, p={p:.4f}, 期望值<5格數={int((exp<5).sum())}/{exp.size}")
 
@@ -134,8 +130,8 @@ for dname in dp.head(10).dept:
 section("8. 排除立人高中後的學院占比 vs 立人")
 non = dept[dept.school != "立人高中"].groupby("college").dept_total.sum()
 li = dept[dept.school == "立人高中"].groupby("college").dept_total.sum()
-cmp = pd.DataFrame({"其他9校%": (non / non.sum() * 100).round(1), "立人%": (li / li.sum() * 100).round(1)})
-print(cmp.sort_values("其他9校%", ascending=False).to_string())
+cmp = pd.DataFrame({"其他校%": (non / non.sum() * 100).round(1), "立人%": (li / li.sum() * 100).round(1)})
+print(cmp.sort_values("其他校%", ascending=False).to_string())
 
 # save tidy summary for report
 sch.to_csv(f"{d}/summary_school.csv")
